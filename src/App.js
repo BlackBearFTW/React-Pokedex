@@ -2,6 +2,7 @@ import './App.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Autocomplete from "./components/Autocomplete";
+import TableGenerator from "./components/TableGenerator";
 
 
 
@@ -50,8 +51,8 @@ function App() {
   return (
     <div className="App">
         <Autocomplete options={pokemonList} limit="10" callback={getInformation} className="App-item"></Autocomplete>
-        <img src={(pokemonInformation !== "") ? pokemonInformation.img : ""} alt=""/>
-        <pre>{JSON.stringify(pokemonInformation, null, "\t")}</pre>
+        <img src={(pokemonInformation !== "") ? pokemonInformation.img : ""} alt="" className="pokemon-image "/>
+        <TableGenerator data={pokemonInformation} />
     </div>
   );
 

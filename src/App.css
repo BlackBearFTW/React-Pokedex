@@ -1,18 +1,32 @@
 .App {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .suggestions {
     list-style-type:none;
     padding: 0;
     margin-top: 0;
-    /*width: 164px;*/
 }
 
 .suggestions > li {
     padding: 5px;
     border: 1px solid darkgray;
     border-top: transparent;
+}
+
+.pokemon-image {
+   width: 7%;
+    height: auto;
+}
+
+input[type="text"] {
+border: 1px solid grey;
+}
+
+input[type="text"]:focus {
+outline: 0;
 }
