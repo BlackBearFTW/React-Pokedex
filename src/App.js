@@ -8,24 +8,23 @@ import Autocomplete from "./components/Autocomplete";
 
 function App() {
    const [pokemon, setPokemon] = useState([]);
-    const [pokemonInformation, setPokemonInformation] = useState("");
-    const [pokemonImg, setPokemonImg] = useState("");
+    const [pokemonInformation, setPokemonInformation] = useState({});
+    // const [pokemonImg, setPokemonImg] = useState("");
 
     async function getInformation(pokemon) {
         if (pokemon === "") {
-            setPokemonImg("");
+            //setPokemonImg("");
             return setPokemonInformation("");
         }
 
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-        setPokemonInformation(JSON.stringify(res.data, null, "\t"));
-        await getImage(res.data);
+        setPokemonInformation(res.data);
+        //await getImage(res.data);
     }
 
-    async function getImage(data) {
-        const res = await axios.get(data.forms[0].url);
-        setPokemonImg(res.data.sprites.front_default);
-    }
+    // async function getImage(data) {
+    //     setPokemonImg(data.sprites.front_default);
+    // }
 
 
     useEffect(() => {
@@ -40,7 +39,7 @@ function App() {
   return (
     <div className="App">
         <Autocomplete options={pokemon} limit="10" callback={getInformation}></Autocomplete>
-        <img src={pokemonImg} alt=""/>
+        {/*<img src={JSON.parse(pokemonInformation).sprites.front_default} alt=""/>*/}
         <pre>{pokemonInformation}</pre>
     </div>
   );
