@@ -9,23 +9,14 @@ import Autocomplete from "./components/Autocomplete";
 function App() {
    const [pokemon, setPokemon] = useState([]);
     const [pokemonInformation, setPokemonInformation] = useState({});
-    // const [pokemonImg, setPokemonImg] = useState("");
 
-    async function getInformation(pokemon) {
-        if (pokemon === "") {
-            //setPokemonImg("");
-            return setPokemonInformation("");
-        }
+    function getInformation(pokemon) {
+        if (pokemon === "") return setPokemonInformation("");
 
-        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-        setPokemonInformation(res.data);
-        //await getImage(res.data);
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`).then(res => {
+            setPokemonInformation(res.data);
+        });
     }
-
-    // async function getImage(data) {
-    //     setPokemonImg(data.sprites.front_default);
-    // }
-
 
     useEffect(() => {
         axios.get('https://pokeapi.co/api/v2/pokemon?limit=1118').then(res => {
@@ -33,9 +24,7 @@ function App() {
         });
     }, []);
 
-
-
-
+    
   return (
     <div className="App">
         <Autocomplete options={pokemon} limit="10" callback={getInformation}></Autocomplete>
