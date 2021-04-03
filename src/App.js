@@ -24,12 +24,12 @@ function App() {
         });
     }, []);
 
-    
+
   return (
     <div className="App">
         <Autocomplete options={pokemon} limit="10" callback={getInformation}></Autocomplete>
-        {/*<img src={JSON.parse(pokemonInformation).sprites.front_default} alt=""/>*/}
-        <pre>{pokemonInformation}</pre>
+        <img src={pokemonInformation.sprites.front_default} alt=""/>
+        <pre>{JSON.stringify(pokemonInformation, null, "\t")}</pre>
     </div>
   );
 }
