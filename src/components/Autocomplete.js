@@ -11,7 +11,7 @@ function Autocomplete({options, limit, callback}) {
         if (event.target.value === "") return setSuggestions([]);
 
         const items = options.filter(op => {
-            return op.toLowerCase().startsWith(event.target.value);
+            return op.startsWith(event.target.value.toLowerCase());
         })
 
         setSuggestions(items.slice(0, limit));
