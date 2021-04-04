@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import Autocomplete from "./components/Autocomplete";
 import PokemonCard from "./components/PokemonCard";
+import Navbar from "./components/Navbar";
 
 
 
@@ -58,9 +59,8 @@ function App() {
 
   return (
     <div className="App">
-        <Autocomplete options={pokemonList} limit="10" callback={getInformation} className="App-item"></Autocomplete>
-        {/*<img src={(pokemonInformation !== "") ? pokemonInformation.img : ""} alt="" className="pokemon-image "/>*/}
-        {/*<TableGenerator data={pokemonInformation} />*/}
+        <Navbar searchbar={<Autocomplete options={pokemonList} limit="10" callback={getInformation} className="App-item"></Autocomplete>} />
+
         <PokemonCard data={pokemonInformation}/>
     </div>
   );

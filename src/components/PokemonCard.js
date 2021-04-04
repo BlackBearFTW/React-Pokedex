@@ -5,11 +5,8 @@ function PokemonCard({data}) {
 
 
 
-
-
-
     return (
-        <div className="card-base">
+        /*<div className="card-base">
             <div className="card-header" style={{"height": "32px"}}>
                 <h1>Basic Pok&eacute;mon</h1>
                 <div>
@@ -41,7 +38,8 @@ function PokemonCard({data}) {
                     <p className="copyright"><strong>Illus. Ken Sugimori</strong>&nbsp; &copy;1995, 96, 98 Nintendo,
                         Creatures, GAMEFREAK. &copy;1999 Wizards.&nbsp;<strong>32/64&#8226;</strong></p>
                 </div>
-        </div>
+        </div>*/
+        <img src={data.img} alt="" id="poke-img"/>
     );
 }
 

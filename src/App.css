@@ -1,8 +1,5 @@
 body {
-    background-image: url("http://localhost:3000/wallpaper.png");
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-    background-position: left bottom;
+    font-family: 'Nunito', sans-serif;
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -13,6 +10,22 @@ body {
     flex-direction: column;
     align-items: center;
 
+}
+
+.navbar {
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    background: white;
+    justify-content: space-between;
+    box-shadow: 0 5px 5px -5px black;
+    margin: 0 15px;
+}
+
+
+.navbar > img {
+    width: 10%;
+    height: auto;
 }
 
 .suggestions {
@@ -72,8 +85,9 @@ outline: 0;
 }
 */
 
+/*
 
-/* Copy pasta */
+!* Copy pasta *!
 body {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
@@ -122,7 +136,7 @@ hr {
 
 img { width: 100%; height: auto; }
 
-/* Header */
+!* Header *!
 
 .card-header {
     font-size: 20px;
@@ -143,7 +157,7 @@ img { width: 100%; height: auto; }
     margin: 0;
 }
 
-/* Main image */
+!* Main image *!
 
 .image-big {
     width: 258px;
@@ -156,7 +170,7 @@ img { width: 100%; height: auto; }
     background-color: white;
 }
 
-/* Desc banner */
+!* Desc banner *!
 
 .banner {
     width: 225px;
@@ -168,7 +182,7 @@ img { width: 100%; height: auto; }
     margin-top: -8px;
 }
 
-/* Card contents and text */
+!* Card contents and text *!
 
 .inner-container {
     position: relative;
@@ -176,7 +190,7 @@ img { width: 100%; height: auto; }
     font-size: 13px;
 }
 
-/* Footer */
+!* Footer *!
 .stats {
     display: flex;
     flex-direction: row;
@@ -217,5 +231,6 @@ img { width: 100%; height: auto; }
 .footer {
     font-size: 6px;
 }
+*/
 
 
