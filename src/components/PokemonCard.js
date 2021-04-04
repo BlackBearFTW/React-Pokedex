@@ -31,8 +31,8 @@ function PokemonCard({data}) {
                         <div className="stats">
                             <div>Attack<br/>{data.stats.attack}</div>
                             <div>Defense<br/>{data.stats.defense}</div>
-                            <div>Sp Attack<br/>{data.stats.special_attack}</div>
-                            <div>Sp Defense<br/>{data.stats.special_defense}</div>
+                            <div>Sp. Attack<br/>{data.stats.special_attack}</div>
+                            <div>Sp. Defense<br/>{data.stats.special_defense}</div>
                         </div>
                     </div>
                     <div className="fun-fact">
