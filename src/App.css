@@ -105,7 +105,7 @@ hr {
     position: absolute;
     top: 10%;
     left: 40%;
-    background: #ffffff url('https://image.ibb.co/djWA2m/background2.png');
+    background: #ffffff url('http://localhost:3000/background2.png');
     width: 270px;
     border-width: 16px;
     border-style: solid;

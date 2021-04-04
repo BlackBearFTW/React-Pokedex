@@ -29,15 +29,14 @@ function PokemonCard({data}) {
                     <div className="footer" style={{"height": "34px"}}>
                         <hr></hr>
                         <div className="stats">
-                            <div>attack</div>
-                            <div>defense</div>
-                            <div>sp attack</div>
-                            <div>sp defense</div>
+                            <div>Attack<br/>{data.stats.attack}</div>
+                            <div>Defense<br/>{data.stats.defense}</div>
+                            <div>Sp Attack<br/>{data.stats.special_attack}</div>
+                            <div>Sp Defense<br/>{data.stats.special_defense}</div>
                         </div>
                     </div>
                     <div className="fun-fact">
-                        <p className="fact">A mysterious Pok&eacute;mon. Some say it is a life-form from another
-                            dimension, while others believe it is formed from smog.&nbsp; LV. 17&nbsp; #{data.id}</p>
+                        <p className="fact">A {data.types[0]} Pok&eacute;mon. It does {data.types[0].toLowerCase()} things.&nbsp; LV. 17&nbsp; #{data.id}</p>
                     </div>
                     <p className="copyright"><strong>Illus. Ken Sugimori</strong>&nbsp; &copy;1995, 96, 98 Nintendo,
                         Creatures, GAMEFREAK. &copy;1999 Wizards.&nbsp;<strong>32/64&#8226;</strong></p>
