@@ -16,7 +16,6 @@ function PokemonCard({data}) {
                     <div>
                         <p className="alignleft">{data.name}</p>
                         <p className="alignright">{data.stats.hp} HP</p>
-                        <img src="https://image.ibb.co/nhYAf6/purple_icon.png" alt="symbol" className="image-right"/>
                     </div>
                 </div>
             </div>
@@ -26,30 +25,15 @@ function PokemonCard({data}) {
             <div className="banner" style={{"textAlign": "center"}}>
                 <p>&nbsp;{data.types[0]} Pok&eacute;mon. &nbsp;Length {data.height} m;&nbsp; Weight {data.weight} kg.</p>
             </div>
-            <img src="https://image.ibb.co/jcMADR/foot.png" alt="foot" className="foot" />
                 <div className="inner-container">
-                    <div className="description" style={{"height": "120px"}}>
-                        <p className="alignright-hp">10</p>
-                        <p className="main-text"><strong>Lick</strong>&nbsp; Flip a coin. If heads, the Defending
-                            <br/>Pok&eacute;mon is now Paralyzed.</p>
-                        <hr/>
-                        <p className="main-text"><strong>Energy Conversion</strong>&nbsp; Put up to 2 Energy
-                            <br/>cards from your discard pile into your hand.
-                            <br/>Gastly does 10 damage to itself.</p>
-                    </div>
-                    <div>
-                        <img src="https://image.ibb.co/nhYAf6/purple_icon.png" alt="symbol" className="image-des1" />
-                        <img src="https://image.ibb.co/nhYAf6/purple_icon.png" alt="symbol" className="image-des2" />
-                        <img src="https://image.ibb.co/nhYAf6/purple_icon.png" alt="symbol" className="image-des3" />
-                    </div>
                     <div className="footer" style={{"height": "34px"}}>
                         <hr></hr>
-                        <p className="align-stats-left">weakness</p>
-                        <p className="align-stats-center">resistance</p>
-                        <p className="align-stats-center-under">-30</p>
-                        <p className="align-stats-right">retreat cost</p>
-                        <img src="https://image.ibb.co/fB4zCb/imageedit_14_4776920873.png" alt="rock-symbol"
-                             className="image-footer1" />
+                        <div className="stats">
+                            <div>attack</div>
+                            <div>defense</div>
+                            <div>sp attack</div>
+                            <div>sp defense</div>
+                        </div>
                     </div>
                     <div className="fun-fact">
                         <p className="fact">A mysterious Pok&eacute;mon. Some say it is a life-form from another

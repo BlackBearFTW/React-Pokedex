@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Nunito:600');
-
 body {
     background-image: url("http://localhost:3000/wallpaper.png");
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -38,6 +36,7 @@ input[type="text"]:focus {
 outline: 0;
 }
 
+/*
 .pokemon-card {
     border: #F0D935 solid 15px;
     border-radius: 15px;
@@ -56,7 +55,7 @@ outline: 0;
 }
 
 .pokemon-img > img {
-    margin: 80px;
+    margin: 800%;
 }
 
 .pokemon-card > .pokemon-data {
@@ -69,7 +68,9 @@ outline: 0;
 .pokemon-card > .pokemon-data > div {
     text-align: center;
     flex-grow: 1
+
 }
+*/
 
 
 /* Copy pasta */
@@ -82,7 +83,7 @@ h1 {
     font-style: normal;
     font-variant: normal;
     font-weight: 500;
-    line-height: 15.4px;
+    line-height: 154%;
 }
 
 p {
@@ -95,7 +96,7 @@ hr {
     height: 2px;
     border: 0;
     border-top: 1px solid #000000;
-    margin: 1em 0;
+    margin: 0;
     padding: 0;
 }
 
@@ -140,14 +141,6 @@ img { width: 100%; height: auto; }
     color: #CD0000;
     line-height: 0;
     margin: 0;
-    padding-right: 20px;
-}
-
-.image-right {
-    position: absolute;
-    left: 260px;
-    top: 21px;
-    width: 24px;
 }
 
 /* Main image */
@@ -183,96 +176,16 @@ img { width: 100%; height: auto; }
     font-size: 13px;
 }
 
-.edition {
-    width: 18px;
-}
-
-.foot {
-    position: absolute;
-    left: 259px;
-    top: 242px;
-    width: 14px;
-}
-
-.description {
-    position: relative;
-    top: 10px;
-    bottom: 0;
-    padding-left: 30px;
-    padding-right: 28px;
-}
-
-.alignright-hp {
-    position: absolute;
-    left: 244px;
-    top: 16px;
-    font-size: 20px;
-    line-height: 0;
-    margin: 0;
-}
-
-.main-text {
-    font-size: 11px;
-    font-weight: 500;
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
-.image-des1 {
-    position: absolute;
-    top: 16px;
-    left: 4px;
-    width: 20px;
-}
-
-.image-des2 {
-    position: absolute;
-    top: 77px;
-    left: -4px;
-    width: 20px;
-}
-
-.image-des3 {
-    position: absolute;
-    top: 77px;
-    left: 13px;
-    width: 20px;
-}
-
-
 /* Footer */
-
-.align-stats-left {
-    position: absolute;
-    left: 20px;
-    top: 133px;
-    line-height: 0;
-    margin: 0;
+.stats {
+    display: flex;
+    flex-direction: row;
+    font-size: 11px;
 }
 
-.align-stats-center {
-    position: absolute;
-    left: 115px;
-    top: 133px;
-    line-height: 0;
-    margin: 0;
-}
-
-.align-stats-center-under {
-    position: absolute;
-    left: 146px;
-    top: 149px;
-    line-height: 0;
-    font-size: 12px;
-    margin: 0;
-}
-
-.align-stats-right {
-    position: absolute;
-    left: 205px;
-    top: 133px;
-    line-height: 0;
-    margin: 0;
+.stats > div {
+    text-align: center;
+    flex-grow: 1
 }
 
 .fun-fact {
@@ -305,10 +218,4 @@ img { width: 100%; height: auto; }
     font-size: 6px;
 }
 
-.image-footer1 {
-    position: absolute;
-    top: 139px;
-    left: 127px;
-    width: 18px;
-}
 
