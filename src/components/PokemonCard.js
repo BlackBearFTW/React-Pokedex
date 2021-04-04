@@ -21,10 +21,10 @@ function PokemonCard({data}) {
                 </div>
             </div>
             <div>
-                <img src={data.img} alt="gastly" className="image-big" />
+                <img src={data.img} alt="" className="image-big" />
             </div>
             <div className="banner" style={{"textAlign": "center"}}>
-                <p>&nbsp;{data.types[0]} Pok&eacute;mon. &nbsp;Length {data.height} m; Weight {data.weight} kg.</p>
+                <p>&nbsp;{data.types[0]} Pok&eacute;mon. &nbsp;Length {data.height} m;&nbsp; Weight {data.weight} kg.</p>
             </div>
             <img src="https://image.ibb.co/jcMADR/foot.png" alt="foot" className="foot" />
                 <div className="inner-container">
@@ -40,8 +40,7 @@ function PokemonCard({data}) {
                     <div>
                         <img src="https://image.ibb.co/nhYAf6/purple_icon.png" alt="symbol" className="image-des1" />
                         <img src="https://image.ibb.co/nhYAf6/purple_icon.png" alt="symbol" className="image-des2" />
-                        <img src="https://image.ibb.co/nhYAf6/purple_icon.png" alt="symbol"
-                             className="image-des3" />
+                        <img src="https://image.ibb.co/nhYAf6/purple_icon.png" alt="symbol" className="image-des3" />
                     </div>
                     <div className="footer" style={{"height": "34px"}}>
                         <hr></hr>
@@ -54,7 +53,7 @@ function PokemonCard({data}) {
                     </div>
                     <div className="fun-fact">
                         <p className="fact">A mysterious Pok&eacute;mon. Some say it is a life-form from another
-                            dimension, while others believe it is formed from smog.&nbsp; LV. 17&nbsp; #92</p>
+                            dimension, while others believe it is formed from smog.&nbsp; LV. 17&nbsp; #{data.id}</p>
                     </div>
                     <p className="copyright"><strong>Illus. Ken Sugimori</strong>&nbsp; &copy;1995, 96, 98 Nintendo,
                         Creatures, GAMEFREAK. &copy;1999 Wizards.&nbsp;<strong>32/64&#8226;</strong></p>
