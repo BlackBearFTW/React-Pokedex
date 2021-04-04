@@ -1,8 +1,8 @@
 function TableGenerator({data}) {
     return (
-        <table>
+        <table border="7">
             {Object.entries(data).map(([key, value]) => (
-                <tr key={key}><td>{key}</td><td>{value}</td></tr>
+                <tr key={JSON.stringify(key)}><td>{JSON.stringify(key)}</td><td>{JSON.stringify(value)}</td></tr>
             ))}
         </table>
     )

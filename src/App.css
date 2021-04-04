@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Nunito:600');
+
+
+
 .App {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+
+
 }
 
 .suggestions {
@@ -18,11 +22,6 @@
     border-top: transparent;
 }
 
-.pokemon-image {
-   width: 7%;
-    height: auto;
-}
-
 input[type="text"] {
 border: 1px solid grey;
 }
@@ -30,3 +29,277 @@ border: 1px solid grey;
 input[type="text"]:focus {
 outline: 0;
 }
+
+.pokemon-card {
+    border: #F0D935 solid 15px;
+    border-radius: 15px;
+    align-items: center;
+    text-align: center;
+    background-color: cadetblue;
+}
+
+.pokemon-card > h2 {
+    margin: 0;
+}
+
+.pokemon-img {
+    background-color: white;
+    border-radius: 100%;
+}
+
+.pokemon-img > img {
+    margin: 80px;
+}
+
+.pokemon-card > .pokemon-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.pokemon-card > .pokemon-data > div {
+    text-align: center;
+    flex-grow: 1
+}
+
+
+/* Copy pasta */
+body {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+h1 {
+    font-size: 10px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15.4px;
+}
+
+p {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    border-top: 1px solid #000000;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+.card-base {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    background: #ffffff url('https://image.ibb.co/djWA2m/background2.png');
+    width: 270px;
+    border-width: 16px;
+    border-style: solid;
+    border-color: gold;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000000;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+    transform: translatey(0px);
+
+}
+
+img { width: 100%; height: auto; }
+
+/* Header */
+
+.card-header {
+    font-size: 20px;
+}
+
+.alignleft {
+    float: left;
+    font-size: 20px;
+    line-height: 0;
+    margin: 0;
+}
+.alignright {
+    float: right;
+    width: auto;
+    font-size: 20px;
+    color: #CD0000;
+    line-height: 0;
+    margin: 0;
+    padding-right: 20px;
+}
+
+.image-right {
+    position: absolute;
+    left: 260px;
+    top: 21px;
+    width: 24px;
+}
+
+/* Main image */
+
+.image-big {
+    width: 258px;
+    height: 195px;
+    border: 6px solid transparent;
+    border-image: linear-gradient(to right top, goldenrod , gold);
+    border-image-slice: 1;
+    box-shadow: 0 0 10px #000000;
+    object-fit: contain;
+}
+
+/* Desc banner */
+
+.banner {
+    width: 225px;
+    background: linear-gradient(to right top, peru , gold);
+    box-shadow: 0 0 1px #888;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 21px;
+    margin-top: -8px;
+}
+
+/* Card contents and text */
+
+.inner-container {
+    position: relative;
+    min-height: 50px;
+    font-size: 13px;
+}
+
+.edition {
+    width: 18px;
+}
+
+.foot {
+    position: absolute;
+    left: 259px;
+    top: 242px;
+    width: 14px;
+}
+
+.description {
+    position: relative;
+    top: 10px;
+    bottom: 0;
+    padding-left: 30px;
+    padding-right: 28px;
+}
+
+.alignright-hp {
+    position: absolute;
+    left: 244px;
+    top: 16px;
+    font-size: 20px;
+    line-height: 0;
+    margin: 0;
+}
+
+.main-text {
+    font-size: 11px;
+    font-weight: 500;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.image-des1 {
+    position: absolute;
+    top: 16px;
+    left: 4px;
+    width: 20px;
+}
+
+.image-des2 {
+    position: absolute;
+    top: 77px;
+    left: -4px;
+    width: 20px;
+}
+
+.image-des3 {
+    position: absolute;
+    top: 77px;
+    left: 13px;
+    width: 20px;
+}
+
+
+/* Footer */
+
+.align-stats-left {
+    position: absolute;
+    left: 20px;
+    top: 133px;
+    line-height: 0;
+    margin: 0;
+}
+
+.align-stats-center {
+    position: absolute;
+    left: 115px;
+    top: 133px;
+    line-height: 0;
+    margin: 0;
+}
+
+.align-stats-center-under {
+    position: absolute;
+    left: 146px;
+    top: 149px;
+    line-height: 0;
+    font-size: 12px;
+    margin: 0;
+}
+
+.align-stats-right {
+    position: absolute;
+    left: 205px;
+    top: 133px;
+    line-height: 0;
+    margin: 0;
+}
+
+.fun-fact {
+    position: relative;
+    left: 2px;
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right top, white , gold);
+    border-image-slice: 1;
+    box-shadow: 0 0 2px #000000;
+    width: 264px;
+    height: 20px;
+}
+
+.fact {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 9.2px;
+    margin-top: 1px;
+    margin-left: 5px;
+    margin-right: 0;
+    line-height: 0.9;
+    padding: 0;
+}
+
+.copyright {
+    font-size: 6.5px;
+}
+
+.footer {
+    font-size: 6px;
+}
+
+.image-footer1 {
+    position: absolute;
+    top: 139px;
+    left: 127px;
+    width: 18px;
+}
+
