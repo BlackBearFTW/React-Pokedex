@@ -1,3 +1,13 @@
+# About
+
+For my first time using React, I decided to make a Pokédex.
+
+I used the following resources:
+- PokéAPI (https://pokeapi.co/)
+- alicedxb/pokemon-card (Base for pokemon card)
+- ReactJS
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
