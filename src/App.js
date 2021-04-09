@@ -2,15 +2,15 @@ import './App.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Autocomplete from "./components/Autocomplete";
-import PokemonCard from "./components/PokemonCard";
-import Navbar from "./components/Navbar";
-
+import FastAverageColor from 'fast-average-color';
 
 
 
 function App() {
-   const [pokemonList, setPokemonList] = useState([]);
+    const [pokemonList, setPokemonList] = useState([]);
     const [pokemonInformation, setPokemonInformation] = useState("");
+    const fac = new FastAverageColor();
+
 
     const capitalize = (s) => {
         return s.charAt(0).toUpperCase() + s.slice(1)
@@ -19,6 +19,13 @@ function App() {
     const roundOff = (n) => {
         return Math.round((n + Number.EPSILON) * 100) / 100
     }
+
+    const updateBackground = () => {
+        const app = document.querySelector(".App");
+       const color = fac.getColor(document.querySelector("#pokemon-img"));
+       app.style.backgroundColor = color.hex;
+    }
+
 
     function getInformation(pokemon) {
         if (pokemon === "") return setPokemonInformation("");
@@ -41,12 +48,14 @@ function App() {
                     attack: res.data.stats[1].base_stat,
                     defense: res.data.stats[2].base_stat,
                     special_attack: res.data.stats[3].base_stat,
-                    special_defense: res.data.stats[4].base_stat
+                    special_defense: res.data.stats[4].base_stat,
+                    speed: res.data.stats[5].base_stat,
                 },
                 types: types
             }
 
             setPokemonInformation(formattedData);
+            updateBackground(formattedData.img)
         });
     }
 
@@ -57,13 +66,16 @@ function App() {
     }, []);
 
 
-  return (
-    <div className="App">
-        <Navbar searchbar={<Autocomplete options={pokemonList} limit="10" callback={getInformation} className="App-item"></Autocomplete>} />
-
-        <PokemonCard data={pokemonInformation}/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <div className="col left-col">
+                <img src={pokemonInformation.img} id="pokemon-img" alt="" crossOrigin=""/>
+            </div>
+            <div className="col right-col">
+                <Autocomplete options={pokemonList} limit="10" callback={getInformation}></Autocomplete>
+            </div>
+        </div>
+    );
 
 }
 

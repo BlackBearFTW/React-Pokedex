@@ -3,8 +3,6 @@ function PokemonCard({data}) {
 
     if (data === "") return null;
 
-
-
     return (
         /*<div className="card-base">
             <div className="card-header" style={{"height": "32px"}}>
@@ -39,7 +37,10 @@ function PokemonCard({data}) {
                         Creatures, GAMEFREAK. &copy;1999 Wizards.&nbsp;<strong>32/64&#8226;</strong></p>
                 </div>
         </div>*/
-        <img src={data.img} alt="" id="poke-img"/>
+       <div>
+           <img src={data.img} id="poke-img" alt=""/>
+           <pre>{JSON.stringify(data, null, "\t")}</pre>
+       </div>
     );
 }
 

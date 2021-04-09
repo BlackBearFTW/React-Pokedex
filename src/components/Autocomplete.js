@@ -6,7 +6,6 @@ function Autocomplete({options, limit, callback}) {
 
     function handleChange(event) {
         setInputValue(event.target.value);
-        callback("");
 
         if (event.target.value === "") return setSuggestions([]);
 

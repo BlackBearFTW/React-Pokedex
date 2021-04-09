@@ -7,25 +7,22 @@ body {
 
 .App {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    height: 100vh;
+    justify-content: center;
 }
 
-.navbar {
-    display: flex;
-    width: 100vw;
-    align-items: center;
-    background: white;
-    justify-content: space-between;
-    box-shadow: 0 5px 5px -5px black;
-    margin: 0 15px;
+.col {
+    flex-grow: 1;
+    height: inherit;
 }
 
+.right-col, .left-col {
+    width: 50vw;
+}
 
-.navbar > img {
-    width: 10%;
-    height: auto;
+.pokemon-img {
+    align-self: center;
+    justify-self: center;
 }
 
 .suggestions {
