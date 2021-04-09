@@ -6,21 +6,24 @@ import PokemonService from "./service/PokemonService";
 
 
 class App extends Component {
+
     constructor(props) {
         super(props);
         this.state = {}
         this.pokemon = null;
+        this.pokemonList = null;
+        this.pokemonService = null;
     }
 
     async componentDidMount() {
         this.pokemonService = new PokemonService();
         this.fac = new FastAverageColor();
-        this.pokemonList = this.pokemonService.getAllNames();
+        this.pokemonList = await this.pokemonService.getAllNames();
 
     }
 
     async getPokemon({pokemon}) {
-        this.pokemon = this.pokemonService.getPokemonByName(pokemon);
+        this.pokemon = await this.pokemonService.getPokemonByName(pokemon);
     }
 
     render() {
