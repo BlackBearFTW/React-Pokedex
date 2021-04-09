@@ -1,12 +1,12 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import Autocomplete from "./components/Autocomplete";
-//import FastAverageColor from 'fast-average-color';
+import FastAverageColor from 'fast-average-color';
 import PokemonService from "./service/PokemonService";
 
 const pokemonService = new PokemonService();
 
-//const fac = new FastAverageColor();
+const fac = new FastAverageColor();
 
 function App() {
     const [pokemonList, setPokemonList] = useState([]);
@@ -18,6 +18,13 @@ function App() {
 
     const handleAutocomplete = (pokemon) => {
         pokemonService.getPokemonByName(pokemon).then(pokemonInfo => setPokemonInformation(pokemonInfo));
+        changeBackground("#poke-img");
+    }
+
+    const changeBackground = (imgSelector) => {
+        const app = document.querySelector(".App");
+        const color = fac.getColor(document.querySelector(imgSelector));
+        app.style.backgroundColor = color.hex;
     }
 
     return (
