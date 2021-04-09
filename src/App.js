@@ -1,29 +1,53 @@
 import './App.css';
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {Component} from "react";
 import Autocomplete from "./components/Autocomplete";
 import FastAverageColor from 'fast-average-color';
+import PokemonService from "./service/PokemonService";
 
 
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+        this.pokemon = null;
+    }
 
-function App() {
+    async componentDidMount() {
+        this.pokemonService = new PokemonService();
+        this.fac = new FastAverageColor();
+        this.pokemonList = this.pokemonService.getAllNames();
+
+    }
+
+    async getPokemon({pokemon}) {
+        this.pokemon = this.pokemonService.getPokemonByName(pokemon);
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <div className="col left-col">
+                    <img src={ (this.pokemon !== null) ? this.pokemon.img : "" } id="pokemon-img" alt="" crossOrigin="anonymous"/>
+                </div>
+                <div className="col right-col">
+                    <Autocomplete options={this.pokemonList} limit="10" callback={this.getPokemon}/>
+                </div>
+            </div>
+        )
+    }
+}
+
+
+/*function App() {
     const [pokemonList, setPokemonList] = useState([]);
     const [pokemonInformation, setPokemonInformation] = useState("");
     const fac = new FastAverageColor();
 
 
-    const capitalize = (s) => {
-        return s.charAt(0).toUpperCase() + s.slice(1)
-    }
-
-    const roundOff = (n) => {
-        return Math.round((n + Number.EPSILON) * 100) / 100
-    }
-
     const updateBackground = () => {
         const app = document.querySelector(".App");
-       const color = fac.getColor(document.querySelector("#pokemon-img"));
-       app.style.backgroundColor = color.hex;
+        const color = fac.getColor(document.querySelector("#pokemon-img"));
+        app.style.backgroundColor = color.hex;
     }
 
 
@@ -34,15 +58,15 @@ function App() {
             let types = [];
 
             for (let type of res.data.types) {
-                types.push(capitalize(type.type.name));
+                types.push(FormattingUtil.capitalize(type.type.name));
             }
 
             const formattedData = {
                 id: res.data.id,
-                name: capitalize(res.data.name),
+                name: FormattingUtil.capitalize(res.data.name),
                 img: res.data.sprites.other["official-artwork"].front_default,
-                height: roundOff(res.data.height * 0.1),
-                weight: roundOff(res.data.weight * 0.1),
+                height: FormattingUtil.roundOff(res.data.height * 0.1),
+                weight: FormattingUtil.roundOff(res.data.weight * 0.1),
                 stats: {
                     hp: res.data.stats[0].base_stat,
                     attack: res.data.stats[1].base_stat,
@@ -59,24 +83,18 @@ function App() {
         });
     }
 
-    useEffect(() => {
-        axios.get('https://pokeapi.co/api/v2/pokemon?limit=1118').then(res => {
-            setPokemonList(res.data.results.map(poke => poke.name));
-        });
-    }, []);
-
 
     return (
         <div className="App">
             <div className="col left-col">
-                <img src={pokemonInformation.img} id="pokemon-img" alt="" crossOrigin=""/>
+                <img src={pokemonInformation.img} id="pokemon-img" alt="" crossOrigin="anonymous"/>
             </div>
             <div className="col right-col">
-                <Autocomplete options={pokemonList} limit="10" callback={getInformation}></Autocomplete>
+                <Autocomplete options={pokemonService.getAllNames()} limit="10" callback={getInformation}></Autocomplete>
             </div>
         </div>
     );
 
-}
+}*/
 
 export default App;
