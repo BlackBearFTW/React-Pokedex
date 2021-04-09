@@ -11,15 +11,13 @@ class App extends Component {
         super(props);
         this.state = {}
         this.pokemon = null;
-        this.pokemonList = null;
-        this.pokemonService = null;
+        this.pokemonList = [];
     }
 
     async componentDidMount() {
         this.pokemonService = new PokemonService();
         this.fac = new FastAverageColor();
         this.pokemonList = await this.pokemonService.getAllNames();
-
     }
 
     async getPokemon({pokemon}) {
