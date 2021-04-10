@@ -26,7 +26,7 @@ function App() {
     }
 
     const changeBackground = async (imgUrl) => {
-        const dynamicBackground = document.querySelector(".dynamic-background");
+        const dynamicBackground = document.querySelector(".image-column");
         const color = await fac.getColorAsync(imgUrl);
         dynamicBackground.style.backgroundColor = color.hex;
     }
@@ -61,16 +61,23 @@ function App() {
         </div>*/
 
              <div className="App">
-                 <div className="dynamic-background col">
+                 {/* Left column */}
+                 <div className="col image-column">
+                     <div>{/* Placeholder */}</div>
                      <img src={pokemonInformation.img} alt=""/>
-                     <div className="types">
+                     <div className="type-icon-parent">
                          <div className="type-icon">Icon</div>
                          <div className="type-icon">Icon</div>
                      </div>
                  </div>
-                 <div className="col">
-                     <img src={logo} className="logo" alt=""/>
-                     <Autocomplete options={pokemonList} limit="10" placeholder="Search Pokémon" callback={handleAutoComplete}/>
+                 {/* Right column */}
+                 <div className="col information-column">
+                     <div>
+                         <img src={logo} className="logo" alt=""/>
+                         <Autocomplete options={pokemonList} limit="10" placeholder="Search Pokémon" callback={handleAutoComplete}/>
+                     </div>
+                     <div></div>
+                     <div>{/* Placeholder */}</div>
                  </div>
              </div>
     );

@@ -10,11 +10,63 @@ body {
     padding: 0;
 }
 
-
 .App {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display:flex;
     height: 100vh;
+}
+
+.col {
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.col > * {
+    flex: 1;
+}
+
+/*---- LEFT COLUMN ----*/
+
+.image-column {
+    transition: background-color 2s;
+    background-color: white;
+
+}
+
+.image-column > *:last-of-type {
+   align-items: flex-end;
+    padding-bottom: 10px;
+}
+
+/*---- RIGHT COLUMN ---- */
+
+.information-column {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---- TYPE ICONS ----*/
+
+.type-icon-parent {
+    display: flex;
+}
+
+.type-icon + .type-icon {
+    margin-left:10px;
 }
 
 .type-icon {
@@ -27,99 +79,7 @@ body {
     border-radius: 50%;
 }
 
-.col:nth-of-type(1) {
-display: grid;
-    place-items: center;
-}
-
-.App:last-child {
-/*    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(2, 1fr);*/
-}
-
-.dynamic-background {
-    transition: background-color 2s;
-    background-color: white;
-}
-
-
-/*.App {
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    transition: background-color 2s;
-    background-color: white;
-    width: 100vw;
-    overflow: hidden;
-}
-
-.col {
-    flex-grow: 1;
-    height: inherit;
-}
-
-.right-col, .left-col {
-    width: 50vw;
-}
-
-.left-col {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.data-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-}
-
-
-
-
-
-.pokemon-name {
-    font-size: 3.5em;
-    font-family: "MADE Soulmaze Italic", serif;
-    font-style: italic;
-}
-
-.right-col {
-    background-color: white;
-}
-
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    height: 40px;
-}
-
-.navbar > * {
-    padding: 15px 50px;
-}
-
-
-.type-icon {
-    align-self: flex-end;
-}
-
-
-.pokemon-img {
-    align-self: center;
-    justify-self: center;
-}
-
-.AutoSuggest {
-    display: flex;
-    flex-direction: column;
-    align-content: stretch;
-}*/
+/*---- SUGGESTION INPUT ----*/
 
 .suggestions {
     list-style-type:none;
