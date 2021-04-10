@@ -9,6 +9,8 @@ body {
     display: flex;
     height: 100vh;
     justify-content: center;
+    transition: background-color 2s;
+    background-color: white;
 }
 
 .col {
@@ -19,6 +21,22 @@ body {
 .right-col, .left-col {
     width: 50vw;
 }
+
+.left-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.right-col {
+    background-color: white;
+}
+
+.type-icon {
+    align-self: flex-end;
+}
+
 
 .pokemon-img {
     align-self: center;

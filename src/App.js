@@ -16,24 +16,27 @@ function App() {
         pokemonService.getAllNames().then(result => setPokemonList(result));
     }, []);
 
-    const handleAutocomplete = (pokemon) => {
-        pokemonService.getPokemonByName(pokemon).then(pokemonInfo => setPokemonInformation(pokemonInfo));
-        changeBackground("#poke-img");
+    const handleAutoComplete = (pokemon) => {
+        pokemonService.getPokemonByName(pokemon).then(pokemonInfo => {
+            setPokemonInformation(pokemonInfo);
+            changeBackground(pokemonInfo.img);
+        });
+
     }
 
-    const changeBackground = (imgSelector) => {
+    const changeBackground = async (imgUrl) => {
         const app = document.querySelector(".App");
-        const color = fac.getColor(document.querySelector(imgSelector));
+        const color = await fac.getColorAsync(imgUrl);
         app.style.backgroundColor = color.hex;
     }
 
     return (
         <div className="App">
             <div className="col left-col">
-                <img src={pokemonInformation.img} id="pokemon-img" alt="" crossOrigin="anonymous"/>
+                <img src={pokemonInformation.img} id="pokemon-img" alt="" crossOrigin=""/>
             </div>
             <div className="col right-col">
-                <Autocomplete options={pokemonList} limit="10" callback={handleAutocomplete}/>
+                <Autocomplete options={pokemonList} limit="10" callback={handleAutoComplete}/>
             </div>
         </div>
     );
