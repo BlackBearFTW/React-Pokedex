@@ -42,12 +42,20 @@ body {
 
 /*---- RIGHT COLUMN ---- */
 
-.col > .information-column {
-    justify-content: flex-start !important;
+.information-column {
+    align-items: flex-start;
 }
 
 .navbar {
     display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.navbar > img {
+    height: 60px;
 }
 
 
