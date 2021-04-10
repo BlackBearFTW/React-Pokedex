@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function Autocomplete({options, limit, callback}) {
+function Autocomplete({options, limit, placeholder = "", callback}) {
     const [suggestions, setSuggestions] = useState([]);
     const [inputValue, setInputValue] = useState("");
 
@@ -27,8 +27,8 @@ function Autocomplete({options, limit, callback}) {
 
 
     return (
-        <div>
-            <input type="text" onChange={handleChange} value={inputValue}/>
+        <div className="AutoSuggest">
+            <input type="text" onChange={handleChange} placeholder={placeholder} value={inputValue}/>
             <ul className="suggestions">
                 {suggestions.map(suggestion => (
                     <li key={suggestion} onClick={handleClick}>

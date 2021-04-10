@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "MADE Soulmaze Italic";
+    src: url('Soulmaze.otf');
+}
+
 body {
     font-family: 'Nunito', sans-serif;
     height: 100vh;
@@ -5,12 +10,48 @@ body {
     padding: 0;
 }
 
+
 .App {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+}
+
+.type-icon {
+    height: 80px;
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    display: flex;
+    border-radius: 50%;
+}
+
+.col:nth-of-type(1) {
+display: grid;
+    place-items: center;
+}
+
+.App:last-child {
+/*    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);*/
+}
+
+.dynamic-background {
+    transition: background-color 2s;
+    background-color: white;
+}
+
+
+/*.App {
     display: flex;
     height: 100vh;
     justify-content: center;
     transition: background-color 2s;
     background-color: white;
+    width: 100vw;
+    overflow: hidden;
 }
 
 .col {
@@ -28,10 +69,41 @@ body {
     justify-content: center;
 }
 
+.data-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
+
+
+
+
+.pokemon-name {
+    font-size: 3.5em;
+    font-family: "MADE Soulmaze Italic", serif;
+    font-style: italic;
+}
 
 .right-col {
     background-color: white;
 }
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 40px;
+}
+
+.navbar > * {
+    padding: 15px 50px;
+}
+
 
 .type-icon {
     align-self: flex-end;
@@ -43,11 +115,19 @@ body {
     justify-self: center;
 }
 
+.AutoSuggest {
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+}*/
+
 .suggestions {
     list-style-type:none;
     padding: 0;
     margin-top: 0;
     background: white;
+    position: fixed;
+    width: 100%;
 }
 
 .suggestions > li {
@@ -63,189 +143,5 @@ border: 1px solid grey;
 input[type="text"]:focus {
 outline: 0;
 }
-
-/*
-.pokemon-card {
-    border: #F0D935 solid 15px;
-    border-radius: 15px;
-    align-items: center;
-    text-align: center;
-    background-color: cadetblue;
-}
-
-.pokemon-card > h2 {
-    margin: 0;
-}
-
-.pokemon-img {
-    background-color: white;
-    border-radius: 100%;
-}
-
-.pokemon-img > img {
-    margin: 800%;
-}
-
-.pokemon-card > .pokemon-data {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 15px 0;
-}
-
-.pokemon-card > .pokemon-data > div {
-    text-align: center;
-    flex-grow: 1
-
-}
-*/
-
-/*
-
-!* Copy pasta *!
-body {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-}
-
-h1 {
-    font-size: 10px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 500;
-    line-height: 154%;
-}
-
-p {
-    font-size: 10px;
-    font-weight: 500;
-}
-
-hr {
-    display: block;
-    height: 2px;
-    border: 0;
-    border-top: 1px solid #000000;
-    margin: 0;
-    padding: 0;
-}
-
-
-.card-base {
-    position: absolute;
-    top: 10%;
-    left: 40%;
-    background: #ffffff url('http://localhost:3000/background2.png');
-    width: 270px;
-    border-width: 16px;
-    border-style: solid;
-    border-color: gold;
-    border-radius: 10px;
-    box-shadow: 0 0 20px #000000;
-    padding-top: 5px;
-    padding-bottom: 2px;
-    padding-right: 10px;
-    padding-left: 10px;
-    transform: translatey(0px);
-
-}
-
-img { width: 100%; height: auto; }
-
-!* Header *!
-
-.card-header {
-    font-size: 20px;
-}
-
-.alignleft {
-    float: left;
-    font-size: 20px;
-    line-height: 0;
-    margin: 0;
-}
-.alignright {
-    float: right;
-    width: auto;
-    font-size: 20px;
-    color: #CD0000;
-    line-height: 0;
-    margin: 0;
-}
-
-!* Main image *!
-
-.image-big {
-    width: 258px;
-    height: 195px;
-    border: 6px solid transparent;
-    border-image: linear-gradient(to right top, goldenrod , gold);
-    border-image-slice: 1;
-    box-shadow: 0 0 10px #000000;
-    object-fit: contain;
-    background-color: white;
-}
-
-!* Desc banner *!
-
-.banner {
-    width: 225px;
-    background: linear-gradient(to right top, peru , gold);
-    box-shadow: 0 0 1px #888;
-    font-size: 10px;
-    font-weight: bold;
-    margin-left: 21px;
-    margin-top: -8px;
-}
-
-!* Card contents and text *!
-
-.inner-container {
-    position: relative;
-    min-height: 50px;
-    font-size: 13px;
-}
-
-!* Footer *!
-.stats {
-    display: flex;
-    flex-direction: row;
-    font-size: 11px;
-}
-
-.stats > div {
-    text-align: center;
-    flex-grow: 1
-}
-
-.fun-fact {
-    position: relative;
-    left: 2px;
-    border: 1px solid transparent;
-    border-image: linear-gradient(to right top, white , gold);
-    border-image-slice: 1;
-    box-shadow: 0 0 2px #000000;
-    width: 264px;
-    height: 20px;
-}
-
-.fact {
-    font-weight: bold;
-    font-style: italic;
-    font-size: 9.2px;
-    margin-top: 1px;
-    margin-left: 5px;
-    margin-right: 0;
-    line-height: 0.9;
-    padding: 2px;
-}
-
-.copyright {
-    font-size: 6.5px;
-}
-
-.footer {
-    font-size: 6px;
-}
-*/
 
 
