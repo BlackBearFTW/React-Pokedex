@@ -42,21 +42,13 @@ body {
 
 /*---- RIGHT COLUMN ---- */
 
-.information-column {
-
+.col > .information-column {
+    justify-content: flex-start !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.navbar {
+    display: flex;
+}
 
 
 /*---- TYPE ICONS ----*/
@@ -104,4 +96,4 @@ input[type="text"]:focus {
 outline: 0;
 }
 
-
+/* OTHERS */

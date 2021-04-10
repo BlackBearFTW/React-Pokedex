@@ -32,34 +32,6 @@ function App() {
     }
 
     return (
-/*        <div className="App">
-            <div className="col left-col">
-                <img src={pokemonInformation.img} id="pokemon-img" alt="" />
-            </div>
-            <div className="col right-col">
-                <div className="navbar">
-                    <img src={logo} className="logo" alt=""/>
-                    <Autocomplete options={pokemonList} limit="10" placeholder="Search Pokémon" callback={handleAutoComplete}/>
-                </div>
-                { pokemonInformation !== "" &&
-                  <div className="data-wrapper">
-                      <div className="pokemon-name">{pokemonInformation.name}</div>
-                      <div className="pokemon-id">#{("00" + pokemonInformation.id).slice(-3)}</div>
-
-                      <div className="stats">
-                          <div><span>{pokemonInformation.stats.hp}</span><br/>HP</div>
-                          <div><span>{pokemonInformation.stats.speed}</span><br/>Speed</div>
-                          <div><span>{pokemonInformation.stats.attack}</span><br/>Attack</div>
-                          <div><span>{pokemonInformation.stats.defense}</span><br/>Defense</div>
-                          <div><span>{pokemonInformation.stats.special_attack}</span><br/>Sp. Attack</div>
-                          <div><span>{pokemonInformation.stats.special_defense}</span><br/>Sp. Attack</div>
-                          <div>Height: {pokemonInformation.height}M; Weight: {pokemonInformation.weight}Kg</div>
-                      </div>
-                  </div>
-                }
-            </div>
-        </div>*/
-
              <div className="App">
                  {/* Left column */}
                  <div className="col image-column">
@@ -72,7 +44,7 @@ function App() {
                  </div>
                  {/* Right column */}
                  <div className="col information-column">
-                     <div>
+                     <div className="navbar">
                          <img src={logo} className="logo" alt=""/>
                          <Autocomplete options={pokemonList} limit="10" placeholder="Search Pokémon" callback={handleAutoComplete}/>
                      </div>
