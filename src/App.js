@@ -44,9 +44,11 @@ function App() {
                  </div>
                  {/* Right column */}
                  <div className="col information-column">
-                     <div className="navbar">
-                         <img src={logo} className="logo" alt=""/>
-                         <Autocomplete options={pokemonList} limit="10" placeholder="Search Pokémon" callback={handleAutoComplete}/>
+                     <div>
+                         <div className="navbar">
+                             <img src={logo} className="logo" alt=""/>
+                             <Autocomplete options={pokemonList} limit="10" placeholder="Search Pokémon" callback={handleAutoComplete}/>
+                         </div>
                      </div>
                      <div></div>
                      <div>{/* Placeholder */}</div>

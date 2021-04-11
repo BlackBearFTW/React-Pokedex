@@ -52,10 +52,11 @@ body {
     width: 100%;
     justify-content: space-between;
     padding: 30px;
+    box-sizing: border-box;
 }
 
 .navbar > img {
-    height: 60px;
+    height: 40px;
 }
 
 
@@ -87,7 +88,7 @@ body {
     margin-top: 0;
     background: white;
     position: fixed;
-    width: 100%;
+    width: 173px;
 }
 
 .suggestions > li {
@@ -97,7 +98,12 @@ body {
 }
 
 input[type="text"] {
-border: 1px solid grey;
+border: 1px solid #C9C9C9;
+padding: 7px;
+}
+
+::placeholder {
+    color: #C9C9C9;
 }
 
 input[type="text"]:focus {
