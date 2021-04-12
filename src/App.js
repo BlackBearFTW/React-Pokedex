@@ -32,28 +32,55 @@ function App() {
     }
 
     return (
-             <div className="App">
-                 {/* Left column */}
-                 <div className="col image-column">
-                     <div>{/* Placeholder */}</div>
-                     <img src={pokemonInformation.img} alt=""/>
-                     <div className="type-icon-parent">
-                         <div className="type-icon">Icon</div>
-                         <div className="type-icon">Icon</div>
-                     </div>
-                 </div>
-                 {/* Right column */}
-                 <div className="col information-column">
-                     <div>
-                         <div className="navbar">
-                             <img src={logo} className="logo" alt=""/>
-                             <Autocomplete options={pokemonList} limit="10" placeholder="Search Pokémon" callback={handleAutoComplete}/>
-                         </div>
-                     </div>
-                     <div></div>
-                     <div>{/* Placeholder */}</div>
-                 </div>
-             </div>
+        <div className="App">
+            {/* Left column */}
+            <div className="col image-column">
+                <div>{/* Placeholder */}</div>
+                <img src={pokemonInformation.img} alt=""/>
+                <div className="type-icon-parent">
+                    <div className="type-icon">Icon</div>
+                    <div className="type-icon">Icon</div>
+                </div>
+            </div>
+            {/* Right column */}
+            <div className="col information-column">
+                <div>
+                    <div className="navbar">
+                        <img src={logo} className="logo" alt=""/>
+                        <Autocomplete options={pokemonList} limit="10" placeholder="Search Pokémon"
+                                      callback={handleAutoComplete}/>
+                    </div>
+                </div>
+                <div className="stats">
+                    {pokemonInformation && (
+                        <>
+                            <div style={{gridColumnStart: "span 2"}}>
+                                <div className="pokemon-name">{pokemonInformation.name}</div>
+                                <div className="pokemon-id">#{("00" + pokemonInformation.id).slice(-3)}</div>
+                            </div>
+                            <div>
+                                <span className="l-text">{pokemonInformation.stats.hp}</span><br/>HP
+                            </div>
+                            <div>
+                                <span className="l-text">{pokemonInformation.stats.speed}</span><br/>Speed
+                            </div>
+                            <div>
+                                <span className="l-text">{pokemonInformation.stats.attack}</span><br/>Attack
+                            </div>
+                            <div>
+                                <span className="l-text">{pokemonInformation.stats.defense}</span><br/>Defense
+                            </div>
+                            <div>
+                                <span className="l-text">{pokemonInformation.stats.special_attack}</span><br/>Sp. Attack
+                            </div>
+                            <div>
+                                <span className="l-text">{pokemonInformation.stats.special_defense}</span><br/>Sp. Defense
+                            </div>
+                        </>
+                    )}
+                </div>
+            </div>
+        </div>
     );
 
 }

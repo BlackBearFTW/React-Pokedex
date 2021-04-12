@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 @font-face {
     font-family: "MADE Soulmaze Italic";
     src: url('Soulmaze.otf');
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
+    font-family: "Poppins", sans-serif;
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -18,26 +20,26 @@ body {
 .col {
     flex:1;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
-.col > * {
-    flex: 1;
-}
 
 /*---- LEFT COLUMN ----*/
 
 .image-column {
+    flex: 1;
     transition: background-color 2s;
     background-color: white;
+    justify-content: center;
+    align-items: center;
+}
 
+.image-column > * {
+    flex: 1;
 }
 
 .image-column > *:last-of-type {
    align-items: flex-end;
-    padding-bottom: 10px;
 }
 
 /*---- RIGHT COLUMN ---- */
@@ -46,24 +48,69 @@ body {
     align-items: flex-start;
 }
 
-.navbar {
+.information-column > * {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.information-column > *:first-of-type {
     display: flex;
     flex-direction: row;
+
+}
+
+.navbar {
+    margin: 30px;
     width: 100%;
+    height: min-content;
+    display: flex;
     justify-content: space-between;
-    padding: 30px;
-    box-sizing: border-box;
+    align-items: center;
 }
 
 .navbar > img {
     height: 40px;
 }
 
+/* STATS GRID */
+
+.stats {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px;
+    padding-left: 80px;
+    color: #1E1D1A;
+}
+
+
+.pokemon-name {
+    font-family: "MADE Soulmaze Italic", sans-serif;
+    font-size: 4.5rem;
+    margin-bottom: -15px;
+}
+
+.pokemon-id {
+    font-weight: 600;
+    font-size: 1.7rem;
+}
+
+.stats > * span {
+    font-weight: 600;
+    font-size: 3rem;
+    margin-bottom: -500px;
+
+}
+
+.stats > div {
+    font-size: 1.7rem;
+}
 
 /*---- TYPE ICONS ----*/
 
 .type-icon-parent {
     display: flex;
+    padding-bottom: 25px;
 }
 
 .type-icon + .type-icon {
@@ -71,8 +118,8 @@ body {
 }
 
 .type-icon {
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     justify-content: center;
     align-items: center;
     background-color: white;
