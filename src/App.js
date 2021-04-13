@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import Autocomplete from "./components/Autocomplete";
 import FastAverageColor from 'fast-average-color';
 import PokemonService from "./service/PokemonService";
-import logo from "./Pokédex_logo.png";
+
 
 const pokemonService = new PokemonService();
 
@@ -13,10 +13,6 @@ function App() {
     const [pokemonList, setPokemonList] = useState([]);
     const [pokemonInformation, setPokemonInformation] = useState("");
 
-    useEffect(() => {
-        pokemonService.getAllNames().then(result => setPokemonList(result));
-    }, []);
-
     const handleAutoComplete = (pokemon) => {
         pokemonService.getPokemonByName(pokemon).then(pokemonInfo => {
             setPokemonInformation(pokemonInfo);
@@ -24,6 +20,13 @@ function App() {
         });
 
     }
+
+    useEffect(() => {
+        handleAutoComplete("bulbasaur");
+        pokemonService.getAllNames().then(result => setPokemonList(result));
+    }, []);
+
+
 
     const changeBackground = async (imgUrl) => {
         const dynamicBackground = document.querySelector(".image-column");
@@ -37,16 +40,19 @@ function App() {
             <div className="col image-column">
                 <div>{/* Placeholder */}</div>
                 <img src={pokemonInformation.img} alt=""/>
+                {pokemonInformation && (
                 <div className="type-icon-parent">
-                    <div className="type-icon">Icon</div>
-                    <div className="type-icon">Icon</div>
+                    {pokemonInformation.types.map(type => (
+                        <img src={`./types/${type}.png`} alt="" className="type-icon" title={type}/>
+                    ))}
                 </div>
+                )}
             </div>
             {/* Right column */}
             <div className="col information-column">
                 <div>
                     <div className="navbar">
-                        <img src={logo} className="logo" alt=""/>
+                        <img src={"./Pokédex_logo.png"} className="logo" alt=""/>
                         <Autocomplete options={pokemonList} limit="10" placeholder="Search Pokémon"
                                       callback={handleAutoComplete}/>
                     </div>
@@ -55,26 +61,35 @@ function App() {
                     {pokemonInformation && (
                         <>
                             <div style={{gridColumnStart: "span 2"}}>
-                                <div className="pokemon-name">{pokemonInformation.name}</div>
-                                <div className="pokemon-id">#{("00" + pokemonInformation.id).slice(-3)}</div>
+                                <div className="pokemon-name">{pokemonInformation.name.replaceAll("-", "‑")}</div>
+                                <div className="pokemon-id">#{pokemonInformation.id.toString().padStart(3, '0')}</div>
                             </div>
                             <div>
-                                <span className="l-text">{pokemonInformation.stats.hp}</span><br/>HP
+                                <span>{pokemonInformation.stats.hp}</span>
+                                <span>HP</span>
                             </div>
                             <div>
-                                <span className="l-text">{pokemonInformation.stats.speed}</span><br/>Speed
+                                <span>{pokemonInformation.stats.speed}</span>
+                                <span>Speed</span>
                             </div>
                             <div>
-                                <span className="l-text">{pokemonInformation.stats.attack}</span><br/>Attack
+                                <span>{pokemonInformation.stats.attack}</span>
+                                <span>Attack</span>
                             </div>
                             <div>
-                                <span className="l-text">{pokemonInformation.stats.defense}</span><br/>Defense
+                                <span>{pokemonInformation.stats.defense}</span>
+                                <span>Defense</span>
                             </div>
                             <div>
-                                <span className="l-text">{pokemonInformation.stats.special_attack}</span><br/>Sp. Attack
+                                <span>{pokemonInformation.stats.special_attack}</span>
+                                <span>Sp. Attack</span>
                             </div>
                             <div>
-                                <span className="l-text">{pokemonInformation.stats.special_defense}</span><br/>Sp. Defense
+                                <span>{pokemonInformation.stats.special_defense}</span>
+                                <span>Sp. Defense</span>
+                            </div>
+                            <div class="other-stats">
+                                Height: {pokemonInformation.height}M Weight: {pokemonInformation.weight}Kg
                             </div>
                         </>
                     )}
