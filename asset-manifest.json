@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/React-Pokedex/static/css/main.b1843299.chunk.css",
+    "main.css": "/React-Pokedex/static/css/main.33c9795e.chunk.css",
     "main.js": "/React-Pokedex/static/js/main.94c1932e.chunk.js",
     "main.js.map": "/React-Pokedex/static/js/main.94c1932e.chunk.js.map",
     "runtime-main.js": "/React-Pokedex/static/js/runtime-main.6ed8fb85.js",
@@ -8,14 +8,14 @@
     "static/js/2.ee08b049.chunk.js": "/React-Pokedex/static/js/2.ee08b049.chunk.js",
     "static/js/2.ee08b049.chunk.js.map": "/React-Pokedex/static/js/2.ee08b049.chunk.js.map",
     "index.html": "/React-Pokedex/index.html",
-    "static/css/main.b1843299.chunk.css.map": "/React-Pokedex/static/css/main.b1843299.chunk.css.map",
+    "static/css/main.33c9795e.chunk.css.map": "/React-Pokedex/static/css/main.33c9795e.chunk.css.map",
     "static/js/2.ee08b049.chunk.js.LICENSE.txt": "/React-Pokedex/static/js/2.ee08b049.chunk.js.LICENSE.txt",
     "static/media/App.css": "/React-Pokedex/static/media/Soulmaze.aaeb417f.otf"
   },
   "entrypoints": [
     "static/js/runtime-main.6ed8fb85.js",
     "static/js/2.ee08b049.chunk.js",
-    "static/css/main.b1843299.chunk.css",
+    "static/css/main.33c9795e.chunk.css",
     "static/js/main.94c1932e.chunk.js"
   ]
 }
