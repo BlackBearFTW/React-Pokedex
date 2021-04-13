@@ -15,12 +15,16 @@ function App() {
     /*eslint-disable*/
     useEffect(() => {
         pokemonService.getAllNames().then(result => setPokemonList(result));
-        handleAutoComplete("bulbasaur")
+        updateScreen("bulbasaur")
     }, []);
     /*eslint-enable*/
 
 
-    const handleAutoComplete = (pokemon) => {
+    const updateScreen = (pokemon) => {
+
+        if (pokemon < 1 || pokemon > 898) return;
+
+
         pokemonService.getPokemonByName(pokemon).then(pokemonInfo => {
             let fallback = false;
 
@@ -54,7 +58,11 @@ function App() {
             {/* Left column */}
             <div className="col image-column">
                 <div>{/* Placeholder */}</div>
-                <img src={pokemonInformation.img} alt=""/>
+                <div className="img-row">
+                    <button className="btn" onClick={() => updateScreen(pokemonInformation.id - 1)}>-</button>
+                    <img src={pokemonInformation.img} alt=""/>
+                    <button className="btn" onClick={() => updateScreen(pokemonInformation.id + 1)}>+</button>
+                </div>
                 {pokemonInformation && (
                 <div className="type-icon-parent">
                     {pokemonInformation.types.map(type => (
@@ -69,7 +77,7 @@ function App() {
                     <div className="navbar">
                         <img src={"./Pokédex_logo.png"} className="logo" alt=""/>
                         <Autocomplete options={pokemonList} limit="10" placeholder="Search Pokémon"
-                                      callback={handleAutoComplete}/>
+                                      callback={updateScreen}/>
                     </div>
                 </div>
                 <div className="stats">

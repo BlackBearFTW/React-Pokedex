@@ -36,6 +36,14 @@ body {
 
 .image-column > * {
     flex: 1;
+
+}
+
+.img-row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
 }
 
 .image-column > *:last-of-type {
@@ -173,3 +181,17 @@ outline: 0;
 }
 
 /* OTHERS */
+
+.btn {
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    display: flex;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    outline: transparent;
+    border: none;
+}
