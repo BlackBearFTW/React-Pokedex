@@ -193,6 +193,7 @@ outline: 0;
     border-radius: 50%;
     outline: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .btn:hover > * {
