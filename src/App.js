@@ -3,6 +3,8 @@ import {useEffect, useState} from "react";
 import Autocomplete from "./components/Autocomplete";
 import FastAverageColor from 'fast-average-color';
 import PokemonService from "./service/PokemonService";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 const pokemonService = new PokemonService();
 
@@ -59,9 +61,13 @@ function App() {
             <div className="col image-column">
                 <div>{/* Placeholder */}</div>
                 <div className="img-row">
-                    <button className="btn" onClick={() => updateScreen(pokemonInformation.id - 1)}>-</button>
+                    <button className="btn" onClick={() => updateScreen(pokemonInformation.id - 1)}>
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                    </button>
                     <img src={pokemonInformation.img} alt=""/>
-                    <button className="btn" onClick={() => updateScreen(pokemonInformation.id + 1)}>+</button>
+                    <button className="btn" onClick={() => updateScreen(pokemonInformation.id + 1)}>
+                        <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
                 </div>
                 {pokemonInformation && (
                 <div className="type-icon-parent">
