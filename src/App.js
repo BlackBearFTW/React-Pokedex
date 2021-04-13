@@ -4,7 +4,6 @@ import Autocomplete from "./components/Autocomplete";
 import FastAverageColor from 'fast-average-color';
 import PokemonService from "./service/PokemonService";
 
-
 const pokemonService = new PokemonService();
 
 const fac = new FastAverageColor();
@@ -23,15 +22,31 @@ function App() {
 
     const handleAutoComplete = (pokemon) => {
         pokemonService.getPokemonByName(pokemon).then(pokemonInfo => {
+            let fallback = false;
+
+            if(pokemonInfo.img === null) {
+                pokemonInfo.img = "./fallback.png";
+                fallback = true;
+            }
+
+            changeBackground(pokemonInfo.img, fallback).then();
             setPokemonInformation(pokemonInfo);
-            changeBackground(pokemonInfo.img).then();
+
         });
     }
 
-    const changeBackground = async (imgUrl) => {
+    const changeBackground = async (imgUrl, fallback = false) => {
         const dynamicBackground = document.querySelector(".image-column");
-        const color = await fac.getColorAsync(imgUrl);
-        dynamicBackground.style.backgroundColor = color.hex;
+        let color;
+
+        if (fallback) {
+            color = "#4a4a4a";
+        } else {
+            const fullColor = await fac.getColorAsync(imgUrl);
+            color = fullColor.hex;
+        }
+
+        dynamicBackground.style.backgroundColor = color;
     }
 
     return (
@@ -61,7 +76,9 @@ function App() {
                     {pokemonInformation && (
                         <>
                             <div style={{gridColumnStart: "span 2"}}>
-                                <div className="pokemon-name">{pokemonInformation.name.replaceAll("-", "‑")}</div>
+                                <div className="pokemon-name">
+                                    {pokemonInformation.name.replaceAll("-", "‑")}
+                                </div>
                                 <div className="pokemon-id">#{pokemonInformation.id.toString().padStart(3, '0')}</div>
                             </div>
                             <div>
@@ -88,7 +105,7 @@ function App() {
                                 <span>{pokemonInformation.stats.special_defense}</span>
                                 <span>Sp. Defense</span>
                             </div>
-                            <div class="other-stats">
+                            <div className="other-stats">
                                 Height: {pokemonInformation.height}M Weight: {pokemonInformation.weight}Kg
                             </div>
                         </>

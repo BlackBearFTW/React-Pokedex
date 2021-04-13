@@ -10,7 +10,7 @@ function Autocomplete({options, limit, placeholder = "", callback}) {
         if (event.target.value === "") return setSuggestions([]);
 
         const items = options.filter(op => {
-            return op.startsWith(event.target.value.toLowerCase());
+            return op.name.startsWith(event.target.value.toLowerCase());
         })
 
         setSuggestions(items.slice(0, limit));
@@ -18,11 +18,12 @@ function Autocomplete({options, limit, placeholder = "", callback}) {
 
 
 
-    function handleClick(event) {
-        setInputValue(event.target.innerText);
+    function handleClick(name, id) {
+
+        setInputValue(name);
         setSuggestions([]);
 
-        callback(event.target.innerText);
+        callback(id);
     }
 
 
@@ -31,8 +32,8 @@ function Autocomplete({options, limit, placeholder = "", callback}) {
             <input type="text" onChange={handleChange} placeholder={placeholder} value={inputValue}/>
             <ul className="suggestions">
                 {suggestions.map(suggestion => (
-                    <li key={suggestion} onClick={handleClick}>
-                        {suggestion}
+                    <li key={suggestion.id} onClick={() => handleClick(suggestion.name, suggestion.id)}>
+                        {suggestion.name}
                     </li>
                 ))}
             </ul>

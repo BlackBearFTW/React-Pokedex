@@ -3,8 +3,17 @@ import FormattingUtil from "../utils/FormattingUtil";
 
 class PokemonService {
     async getAllNames() {
-        const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=1118');
-        return response.data.results.map(poke => poke.name)
+        const response = await axios.get('https://pokeapi.co/api/v2/pokemon-species/?limit=20000');
+
+        return response.data.results.map(item => {
+            const pokemon = {};
+
+            pokemon.name = item.name;
+            pokemon.id = item.url.replace("https://pokeapi.co/api/v2/pokemon-species/", "").slice(0, -1);
+
+            return pokemon;
+        })
+
     }
 
     async getPokemonByName(name) {
