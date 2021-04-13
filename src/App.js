@@ -61,11 +61,11 @@ function App() {
             <div className="col image-column">
                 <div>{/* Placeholder */}</div>
                 <div className="img-row">
-                    <button className="btn" onClick={() => updateScreen(pokemonInformation.id - 1)}>
+                    <button className="btn" onClick={() => updateScreen(pokemonInformation.id - 1)} title="Previous">
                         <FontAwesomeIcon icon={faChevronLeft} />
                     </button>
                     <img src={pokemonInformation.img} alt=""/>
-                    <button className="btn" onClick={() => updateScreen(pokemonInformation.id + 1)}>
+                    <button className="btn" onClick={() => updateScreen(pokemonInformation.id + 1)} title="Next">
                         <FontAwesomeIcon icon={faChevronRight} />
                     </button>
                 </div>

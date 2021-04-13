@@ -194,3 +194,7 @@ outline: 0;
     outline: transparent;
     border: none;
 }
+
+.btn:hover > * {
+    opacity: 0.5;
+}
