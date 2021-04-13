@@ -6,8 +6,6 @@ I used the following resources:
 - PokéAPI (https://pokeapi.co/)
 - ReactJS
 
-This project is heavily inspired by [Mauro E. Wernly's Pokédex Design](https://dribbble.com/shots/6175056-Pok-dex).
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
