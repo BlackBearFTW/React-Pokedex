@@ -5,6 +5,8 @@ For my first time using React, I decided to make a Pokédex.
 I used the following resources:
 - PokéAPI (https://pokeapi.co/)
 - ReactJS
+- Fast-average-color
+- Fontawesome
 
 # Getting Started with Create React App
 
