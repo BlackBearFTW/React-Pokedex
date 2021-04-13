@@ -13,20 +13,20 @@ function App() {
     const [pokemonList, setPokemonList] = useState([]);
     const [pokemonInformation, setPokemonInformation] = useState("");
 
+    /*eslint-disable*/
+    useEffect(() => {
+        pokemonService.getAllNames().then(result => setPokemonList(result));
+        handleAutoComplete("bulbasaur")
+    }, []);
+    /*eslint-enable*/
+
+
     const handleAutoComplete = (pokemon) => {
         pokemonService.getPokemonByName(pokemon).then(pokemonInfo => {
             setPokemonInformation(pokemonInfo);
             changeBackground(pokemonInfo.img).then();
         });
-
     }
-
-    useEffect(() => {
-        handleAutoComplete("bulbasaur");
-        pokemonService.getAllNames().then(result => setPokemonList(result));
-    }, []);
-
-
 
     const changeBackground = async (imgUrl) => {
         const dynamicBackground = document.querySelector(".image-column");
