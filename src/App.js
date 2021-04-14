@@ -1,10 +1,11 @@
 import './App.css';
 import {useEffect, useState} from "react";
-import Autocomplete from "./components/Autocomplete";
 import FastAverageColor from 'fast-average-color';
 import PokemonService from "./service/PokemonService";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
+import PokemonInformation from "./components/PokemonInformation";
+import Navbar from "./components/Navbar";
 
 const pokemonService = new PokemonService();
 
@@ -30,7 +31,7 @@ function App() {
         pokemonService.getPokemonByName(pokemon).then(pokemonInfo => {
             let fallback = false;
 
-            if(pokemonInfo.img === null) {
+            if (pokemonInfo.img === null) {
                 pokemonInfo.img = "./fallback.png";
                 fallback = true;
             }
@@ -62,69 +63,24 @@ function App() {
                 <div>{/* Placeholder */}</div>
                 <div className="img-row">
                     <button className="btn" onClick={() => updateScreen(pokemonInformation.id - 1)} title="Previous">
-                        <FontAwesomeIcon icon={faChevronLeft} />
+                        <FontAwesomeIcon icon={faChevronLeft}/>
                     </button>
-                    <img src={pokemonInformation.img} alt=""/>
+                    <img src={pokemonInformation.img} className="pokemon-img" alt=""/>
                     <button className="btn" onClick={() => updateScreen(pokemonInformation.id + 1)} title="Next">
-                        <FontAwesomeIcon icon={faChevronRight} />
+                        <FontAwesomeIcon icon={faChevronRight}/>
                     </button>
                 </div>
-                {pokemonInformation && (
-                <div className="type-icon-parent">
-                    {pokemonInformation.types.map(type => (
-                        <img src={`./types/${type}.png`} alt="" className="type-icon" title={type}/>
-                    ))}
-                </div>
-                )}
+                    <div className="type-icon-parent">
+                        {pokemonInformation.types.map(type => (
+                            <img src={`${process.env.PUBLIC_URL}/types/${type}.png`} alt="" className="type-icon"
+                                 title={type}/>
+                        ))}
+                    </div>
             </div>
             {/* Right column */}
             <div className="col information-column">
-                <div>
-                    <div className="navbar">
-                        <img src={"./Pokédex_logo.png"} className="logo" alt=""/>
-                        <Autocomplete options={pokemonList} limit="10" placeholder="Search Pokémon"
-                                      callback={updateScreen}/>
-                    </div>
-                </div>
-                <div className="stats">
-                    {pokemonInformation && (
-                        <>
-                            <div style={{gridColumnStart: "span 2"}}>
-                                <div className="pokemon-name">
-                                    {pokemonInformation.name.replaceAll("-", "‑")}
-                                </div>
-                                <div className="pokemon-id">#{pokemonInformation.id.toString().padStart(3, '0')}</div>
-                            </div>
-                            <div>
-                                <span>{pokemonInformation.stats.hp}</span>
-                                <span>HP</span>
-                            </div>
-                            <div>
-                                <span>{pokemonInformation.stats.speed}</span>
-                                <span>Speed</span>
-                            </div>
-                            <div>
-                                <span>{pokemonInformation.stats.attack}</span>
-                                <span>Attack</span>
-                            </div>
-                            <div>
-                                <span>{pokemonInformation.stats.defense}</span>
-                                <span>Defense</span>
-                            </div>
-                            <div>
-                                <span>{pokemonInformation.stats.special_attack}</span>
-                                <span>Sp. Attack</span>
-                            </div>
-                            <div>
-                                <span>{pokemonInformation.stats.special_defense}</span>
-                                <span>Sp. Defense</span>
-                            </div>
-                            <div className="other-stats">
-                                Height: {pokemonInformation.height}M Weight: {pokemonInformation.weight}Kg
-                            </div>
-                        </>
-                    )}
-                </div>
+                <Navbar data={pokemonList} callback={updateScreen} />
+                <PokemonInformation data={pokemonInformation} />
             </div>
         </div>
     );

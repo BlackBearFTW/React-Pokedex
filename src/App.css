@@ -199,3 +199,14 @@ outline: 0;
 .btn:hover > * {
     opacity: 0.5;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .App {
+        flex-direction: column;
+    }
+
+    .pokemon-img {
+        
+    }
+}

@@ -31,14 +31,32 @@ class PokemonService {
             img: response.data.sprites.other["official-artwork"].front_default,
             height: FormattingUtil.roundOff(response.data.height * 0.1),
             weight: FormattingUtil.roundOff(response.data.weight * 0.1),
-            stats: {
-                hp: response.data.stats[0].base_stat,
-                attack: response.data.stats[1].base_stat,
-                defense: response.data.stats[2].base_stat,
-                special_attack: response.data.stats[3].base_stat,
-                special_defense: response.data.stats[4].base_stat,
-                speed: response.data.stats[5].base_stat,
-            },
+            stats: [
+                {
+                    name: "HP",
+                    value: response.data.stats[0].base_stat
+                },
+                {
+                  name: "Speed",
+                  value: response.data.stats[5].base_stat
+                },
+                {
+                    name: "Attack",
+                    value: response.data.stats[1].base_stat
+                },
+                {
+                    name: "Defense",
+                    value:  response.data.stats[2].base_stat
+                },
+                {
+                    name: "Sp. Attack",
+                    value: response.data.stats[3].base_stat
+                },
+                {
+                    name: "Sp. Defense",
+                    value: response.data.stats[4].base_stat
+                }
+            ],
             types: types
         }
     }
