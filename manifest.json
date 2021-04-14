@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Pokédex App",
+  "name": "Pokédex App build in React",
   "icons": [
     {
       "src": "favicon.png",
