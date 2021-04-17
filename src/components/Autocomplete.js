@@ -30,13 +30,13 @@ function Autocomplete({options, limit, placeholder = "", callback}) {
     return (
         <div className="AutoSuggest">
             <input type="text" onChange={handleChange} placeholder={placeholder} value={inputValue}/>
-            <ul className="suggestions">
+            <div className="AutoSuggest-list">
                 {suggestions.map(suggestion => (
-                    <li key={suggestion.id} onClick={() => handleClick(suggestion.name, suggestion.id)}>
+                    <div key={suggestion.id} className="AutoSuggest-item" onClick={() => handleClick(suggestion.name, suggestion.id)}>
                         {suggestion.name}
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     )
 }

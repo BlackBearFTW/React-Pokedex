@@ -14,7 +14,7 @@ function PokemonInformation({data}) {
                 (stat) => <PokemonStat stat={stat?.name} value={stat?.value}/>
             )}
 
-            <div className="other-stats">
+            <div className="other-stats" style={{gridColumnStart: "span 2"}}>
                 Height: {data?.height}M Weight: {data?.weight}Kg
             </div>
         </div>

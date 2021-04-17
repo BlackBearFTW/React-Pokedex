@@ -2,10 +2,9 @@ import './App.css';
 import {useEffect, useState} from "react";
 import FastAverageColor from 'fast-average-color';
 import PokemonService from "./service/PokemonService";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import PokemonInformation from "./components/PokemonInformation";
 import Navbar from "./components/Navbar";
+import IconButton from "./components/IconButton";
 
 const pokemonService = new PokemonService();
 
@@ -58,31 +57,31 @@ function App() {
 
     return (
         <div className="App">
+            <div className="top-bar">
+                <img src={`${process.env.PUBLIC_URL}/Pokédex_logo.png`} className="logo" alt=""/>
+            </div>
             {/* Left column */}
             <div className="col image-column">
                 <div>{/* Placeholder */}</div>
                 <div className="img-row">
-                    <button className="btn" onClick={() => updateScreen(pokemonInformation?.id - 1)} title="Previous">
-                        <FontAwesomeIcon icon={faChevronLeft} />
-                    </button>
+                   <IconButton title="Previous" icon="faChevronLeft" onClick={() => updateScreen(pokemonInformation.id - 1)}/>
                     <img src={pokemonInformation?.img} className="pokemon-img" alt=""/>
-                    <button className="btn" onClick={() => updateScreen(pokemonInformation?.id + 1)} title="Next">
-                        <FontAwesomeIcon icon={faChevronRight} />
-                    </button>
+                    <IconButton title="Next" icon="faChevronRight" onClick={() => updateScreen(pokemonInformation.id + 1)}/>
                 </div>
-                {pokemonInformation && (
+
                 <div className="type-icon-parent">
-                    {pokemonInformation?.types.map(type => (
+                    {pokemonInformation && pokemonInformation.types.map(type => (
                         <img src={`${process.env.PUBLIC_URL}/types/${type}.png`} alt="" className="type-icon" title={type}/>
                     ))}
                 </div>
-                )}
             </div>
+
             {/* Right column */}
             <div className="col information-column">
                 <Navbar data={pokemonList} callback={updateScreen} />
                 { pokemonInformation && <PokemonInformation data={pokemonInformation} />}
             </div>
+
         </div>
     );
 
