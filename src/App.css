@@ -239,13 +239,20 @@ input[type="text"]:focus {
         width: 100%;
     }
 
+
+
     .stats {
         display: grid;
         grid-template-rows: repeat(4, 1fr);
         grid-template-columns: repeat(2, 1fr);
         padding: 30px;
         padding-left: 80px;
+        padding-bottom: 15px;
         color: #1e1d1a;
+    }
+
+    .stats > * span:first-of-type {
+        font-size: 2rem;
     }
 
     .stats > *:first-of-type {
@@ -254,18 +261,19 @@ input[type="text"]:focus {
         height: auto;
     }
 
-    .stats > .other-stats {
-        margin-top: 10px;
-    }
-
 
     .pokemon-img {
         width: 50%;
         padding: 10px;
     }
 
+    .pokemon-id {
+        font-size: 1.3rem;
+    }
+
     .navbar {
         padding-left: 30px;
+        padding-bottom: 15px;
         box-sizing: border-box;
     }
 
@@ -293,16 +301,22 @@ input[type="text"]:focus {
         padding-top: 0;
     }
 
+    .other-stats {
+        margin-top: 10px;
+    }
+
+
     .AutoSuggest {
         flex: 1;
     }
 
     .pokemon-name {
-        font-size: 2.6rem;
+        font-size: 2.2rem;
+        margin-bottom: -10px;
     }
 
     .stats > div {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
 
