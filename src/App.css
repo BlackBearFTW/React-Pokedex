@@ -29,7 +29,7 @@ body {
 .image-column {
     flex: 1;
     transition: background-color 2s;
-    background-color: white;
+    background-color: #7DA58D;
     justify-content: center;
     align-items: center;
 }

@@ -1,5 +1,5 @@
 import './App.css';
-import {useEffect, useState} from "react";
+import {useEffect, useState, useRef} from "react";
 import FastAverageColor from 'fast-average-color';
 import PokemonService from "./service/PokemonService";
 import PokemonInformation from "./components/PokemonInformation";
@@ -13,6 +13,7 @@ const fac = new FastAverageColor();
 function App() {
     const [pokemonList, setPokemonList] = useState([]);
     const [pokemonInformation, setPokemonInformation] = useState(null);
+    const backgroundRef = useRef();
 
     /*eslint-disable*/
     useEffect(() => {
@@ -42,7 +43,6 @@ function App() {
     }
 
     const changeBackground = async (imgUrl, fallback = false) => {
-        const dynamicBackground = document.querySelector(".image-column");
         let color;
 
         if (fallback) {
@@ -52,7 +52,7 @@ function App() {
             color = fullColor.hex;
         }
 
-        dynamicBackground.style.backgroundColor = color;
+        backgroundRef.current.style.backgroundColor = color;
     }
 
     return (
@@ -61,7 +61,7 @@ function App() {
                 <img src={`${process.env.PUBLIC_URL}/Pokédex_logo.png`} className="logo" alt=""/>
             </div>
             {/* Left column */}
-            <div className="col image-column">
+            <div className="col image-column" ref={backgroundRef}>
                 <div>{/* Placeholder */}</div>
                 <div className="img-row">
                    <IconButton title="Previous" icon="faChevronLeft" onClick={() => updateScreen(pokemonInformation.id - 1)}/>
