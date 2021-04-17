@@ -16,8 +16,8 @@ class PokemonService {
 
     }
 
-    async getPokemonByName(name) {
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    async getPokemonByName(query) {
+        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${query}`);
 
         let types = [];
 
@@ -25,9 +25,43 @@ class PokemonService {
             types.push(FormattingUtil.capitalize(type.type.name));
         }
 
+
+        const correctNames = new Map([
+            ["mr-mime", "mr. mime"],
+            ["deoxys-normal", "deoxys"],
+            ["wormadam-plant", "wormadam"],
+            ["giratina-altered", "giratina"],
+            ["shaymin-land", "shaymin"],
+            ["basculin-red-striped", "basculin"],
+            ["darmanitan-standard", "darmanitan"],
+            ["tornadus-incarnate", "tornadus"],
+            ["thundurus-incarnate", "thundurus"],
+            ["landorus-incarnate", "landorus"],
+            ["keldeo-ordinary", "keldeo"],
+            ["meloetta-aria", "meloetta"],
+            ["meowstic-male", "meowstic"],
+            ["aegislash-shield", "aegislash"],
+            ["pumpkaboo-average", "pumpkaboo"],
+            ["gourgeist-average", "gourgeist"],
+            ["oricorio-baile", "oricorio"],
+            ["lycanroc-midday", "lycanroc"],
+            ["wishiwashi-solo", "wishiwashi"],
+            ["type-null", "type: null"],
+            ["minior-red-meteor", "minior"],
+            ["mimikyu-disguised", "mimikyu"],
+            ["toxtricity-amped", "toxtricity"],
+            ["eiscue-ice", "eiscue"],
+            ["indeedee-male", "indeedee"],
+            ["zacian-hero", "zacian"],
+            ["zamazenta-hero", "zamazenta"],
+            ["urshifu-single-strike", "urshifu"]
+        ]);
+
+        const pokemonName = correctNames.has(response.data.name) ? correctNames.get(response.data.name) : response.data.name;
+        
         return {
             id: response.data.id,
-            name: FormattingUtil.capitalize(response.data.name),
+            name: FormattingUtil.capitalize(pokemonName),
             img: response.data.sprites.other["official-artwork"].front_default,
             height: FormattingUtil.roundOff(response.data.height * 0.1),
             weight: FormattingUtil.roundOff(response.data.weight * 0.1),
