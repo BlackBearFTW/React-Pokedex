@@ -58,7 +58,7 @@ class PokemonService {
         ]);
 
         const pokemonName = correctNames.has(response.data.name) ? correctNames.get(response.data.name) : response.data.name;
-        
+
         return {
             id: response.data.id,
             name: FormattingUtil.capitalize(pokemonName),
